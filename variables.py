@@ -1,4 +1,4 @@
-# https://github.com/Infamous-Hydra/YaeMiko
+# https://github.com/aashuxxD/YaeMiko
 # https://github.com/Team-ProjectCodeX
 
 
@@ -43,7 +43,7 @@ class Config(object):
     TOKEN = ""  # Get bot token from @BotFather on Telegram
 
     # Owner's Telegram user ID (Must be an integer)
-    OWNER_ID = 5907205317
+    OWNER_ID = 7328856910
     # <=======================================================================================================>
 
     # <================================================ OPTIONAL ======================================================>
