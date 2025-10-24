@@ -1,97 +1,54 @@
-# https://github.com/Infamous-Hydra/YaeMiko
-# https://github.com/Team-ProjectCodeX
-
-
-import json
 import os
+import json
 
+def safe_load_json(path, default=None):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return default if default is not None else {}
 
-def get_user_list(config, key):
-    with open("{}/Mikobot/{}".format(os.getcwd(), config), "r") as json_file:
-        return json.load(json_file)[key]
-
+def get_user_list(config_filename, key):
+    path = os.path.join(os.getcwd(), "Mikobot", config_filename)
+    data = safe_load_json(path, {})
+    return data.get(key, [])
 
 class Config(object):
-    # Configuration class for the bot
+    LOGGER = os.getenv("LOGGER", "True").lower() in ("1","true","yes")
 
-    # Enable or disable logging
-    LOGGER = True
+    API_ID = int(os.getenv("API_ID", "0"))
+    API_HASH = os.getenv("API_HASH", "")
+    TOKEN = os.getenv("TOKEN", "")
+    OWNER_ID = int(os.getenv("OWNER_ID", "0"))
 
-    # <================================================ REQUIRED ======================================================>
-    # Telegram API configuration
-    API_ID = 204 # Get this value from my.telegram.org/apps
-    API_HASH = ""
+    DATABASE_URL = os.getenv("DATABASE_URL", "")
+    MONGO_DB_URI = os.getenv("MONGO_DB_URI", "")
 
-    # Database configuration (PostgreSQL)
-    DATABASE_URL = "postgres:"
+    EVENT_LOGS = int(os.getenv("EVENT_LOGS", "-100"))
+    MESSAGE_DUMP = int(os.getenv("MESSAGE_DUMP", "-100"))
+    SUPPORT_CHAT = os.getenv("SUPPORT_CHAT", "")
+    SUPPORT_ID = int(os.getenv("SUPPORT_ID", "0"))
+    DB_NAME = os.getenv("DB_NAME", "")
 
-    # Event logs chat ID and message dump chat ID
-    EVENT_LOGS = -100
-    MESSAGE_DUMP = -100
-
-    # MongoDB configuration
-    MONGO_DB_URI = ""
-
-    # Support chat and support ID
-    SUPPORT_CHAT = ""
-    SUPPORT_ID = -100
-
-    # Database name
-    DB_NAME = ""
-
-    # Bot token
-    TOKEN = ""  # Get bot token from @BotFather on Telegram
-
-    # Owner's Telegram user ID (Must be an integer)
-    OWNER_ID = 5907205317
-    # <=======================================================================================================>
-
-    # <================================================ OPTIONAL ======================================================>
-    # Optional configuration fields
-
-    # List of groups to blacklist
-    BL_CHATS = []
-
-    # User IDs of sudo users, dev users, support users, tiger users, and whitelist users
     DRAGONS = get_user_list("elevated_users.json", "sudos")
     DEV_USERS = get_user_list("elevated_users.json", "devs")
     DEMONS = get_user_list("elevated_users.json", "supports")
     TIGERS = get_user_list("elevated_users.json", "tigers")
     WOLVES = get_user_list("elevated_users.json", "whitelists")
 
-    # Toggle features
-    ALLOW_CHATS = True
+    BL_CHATS = []
+    ALLOW_CHATS = os.getenv("ALLOW_CHATS", "True").lower() in ("1","true","yes")
     ALLOW_EXCL = True
     DEL_CMDS = True
     INFOPIC = True
-
-    # Modules to load or exclude
     LOAD = []
     NO_LOAD = []
-
-    # Global ban settings
     STRICT_GBAN = True
-    BAN_STICKER = (
-        "CAACAgUAAxkBAAEGWC5lloYv1tiI3-KPguoH5YX-RveWugACoQ4AAi4b2FQGdUhawbi91DQE"
-    )
-
-    # Temporary download directory
+    BAN_STICKER = os.getenv("BAN_STICKER", "")
     TEMP_DOWNLOAD_DIRECTORY = "./"
-    # <=======================================================================================================>
-
-
-# <=======================================================================================================>
-
 
 class Production(Config):
-    # Production configuration (inherits from Config)
-
-    # Enable or disable logging
-    LOGGER = True
-
+    pass
 
 class Development(Config):
-    # Development configuration (inherits from Config)
-
-    # Enable or disable logging
-    LOGGER = True
+    pass
