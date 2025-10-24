@@ -20,7 +20,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <p align="center">
-<a href="https://github.com/Infamous-Hydra/YaeMiko/stargazers"><img src="https://img.shields.io/github/stars/Infamous-Hydra/YaeMiko?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
+<a href="https://github.com/NEXONHOST/management/stargazers"><img src="https://img.shields.io/github/stars/Infamous-Hydra/YaeMiko?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
 <a href="https://github.com/Infamous-Hydra/YaeMiko/network/members"> <img src="https://img.shields.io/github/forks/Infamous-Hydra/YaeMiko?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
 <a href="https://github.com/Infamous-Hydra/YaeMiko/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" /> </a>
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-skyblue?style=for-the-badge&logo=python" alt="Python" /> </a>
@@ -70,7 +70,7 @@ python3 -m Mikobot         # 8. Run the Bot
 <p align="center">Click the button below to deploy YAE ダ MIKO on Heroku and enjoy its enhanced features and user-friendly interface!</p>
 
 <p align="center">
-    <a href="https://heroku.com/deploy?template=https://github.com/Infamous-Hydra/YaeMiko">
+    <a href="https://heroku.com/deploy?template=https://github.com/NEXONHOST/management">
         <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
     </a>
 </p>
