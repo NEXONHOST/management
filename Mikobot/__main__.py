@@ -228,7 +228,7 @@ async def extra_command_handlered(update: Update, context: ContextTypes.DEFAULT_
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text(
-        "𝙎𝙚𝙡𝙚𝙘𝙩 𝙩𝙝𝙚 [𝙨𝙚𝙘𝙩𝙞𝙤𝙣](https://telegra.ph/file/8c092f4e9d303f9497c83.jpg) 𝙩𝙝𝙖𝙩 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙤𝙥𝙚𝙣",
+        "𝙎𝙚𝙡𝙚𝙘𝙩 𝙩𝙝𝙚 [𝙨𝙚𝙘𝙩𝙞𝙤𝙣](https://files.catbox.moe/0lbgjt.jpg) 𝙩𝙝𝙖𝙩 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙤𝙥𝙚𝙣",
         reply_markup=reply_markup,
         parse_mode="Markdown",
     )
@@ -239,7 +239,7 @@ async def extra_command_callback(update: Update, context: ContextTypes.DEFAULT_T
     if query.data == "extra_command_handler":
         await query.answer()  # Use 'await' for asynchronous calls
         await query.message.edit_text(
-            "𝙎𝙚𝙡𝙚𝙘𝙩 𝙩𝙝𝙚 [𝙨𝙚𝙘𝙩𝙞𝙤𝙣](https://telegra.ph/file/8c092f4e9d303f9497c83.jpg) 𝙩𝙝𝙖𝙩 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙤𝙥𝙚𝙣",
+            "𝙎𝙚𝙡𝙚𝙘𝙩 𝙩𝙝𝙚 [𝙨𝙚𝙘𝙩𝙞𝙤𝙣](https://files.catbox.moe/0lbgjt.jpg) 𝙩𝙝𝙖𝙩 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙤𝙥𝙚𝙣",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -273,7 +273,7 @@ async def ai_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text(
-        "🧠 *Here are the options for* [𝗬𝗔𝗘 𝗠𝗜𝗞𝗢](https://telegra.ph/file/ed2d9c3693cacc9b0464e.jpg):",
+        "🧠 *Here are the options for* [ᴍᴀꜰɪʏᴀ × ᴏᴡɴᴇʀ](https://files.catbox.moe/idjyr8.jpg):",
         reply_markup=reply_markup,
         parse_mode="Markdown",
     )
@@ -284,7 +284,7 @@ async def ai_command_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
     if query.data == "ai_command_handler":
         await query.answer()
         await query.message.edit_text(
-            "🧠 *Here are the options for* [𝗬𝗔𝗘 𝗠𝗜𝗞𝗢](https://telegra.ph/file/ed2d9c3693cacc9b0464e.jpg):",
+            "🧠 *Here are the options for* [ᴍᴀꜰɪʏᴀ × ᴏᴡɴᴇʀ](https://files.catbox.moe/idjyr8.jpg):",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -309,7 +309,7 @@ async def ai_handler_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
     if query.data == "ai_handler":
         await query.answer()
         await query.message.edit_text(
-            "[𝗔𝗿𝘁𝗶𝗳𝗶𝗰𝗶𝗮𝗹 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗙𝘂𝗻𝗰𝘁𝗶𝗼𝗻𝘀](https://telegra.ph/file/01a2e0cd1b9d03808c546.jpg):\n\n"
+            "[𝗔𝗿𝘁𝗶𝗳𝗶𝗰𝗶𝗮𝗹 𝗜𝗻𝘁𝗲𝗹𝗹𝗶𝗴𝗲𝗻𝘁 𝗙𝘂𝗻𝗰𝘁𝗶𝗼𝗻𝘀](https://files.catbox.moe/idjyr8.jpg):\n\n"
             "All Commands:\n"
             "➽ /askgpt <write query>: A chatbot using GPT for responding to user queries.\n\n"
             "➽ /palm <write prompt>: Performs a Palm search using a chatbot.\n\n"
@@ -601,7 +601,7 @@ async def stats_back(update: Update, context: ContextTypes.DEFAULT_TYPE):
         mem = psutil.virtual_memory().percent
         disk = psutil.disk_usage("/").percent
         text = f"""
-𝙎𝙮𝙨𝙩𝙚𝙢 𝙨𝙩𝙖𝙩𝙨@𝙔𝙖𝙚𝙈𝙞𝙠𝙤_𝙍𝙤𝙭𝙗𝙤𝙩
+𝙎𝙮𝙨𝙩𝙚𝙢 𝙨𝙩𝙖𝙩𝙨
 ➖➖➖➖➖➖
 UPTIME ➼ {uptime}
 CPU ➼ {cpu}%
