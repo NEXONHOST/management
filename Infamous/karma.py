@@ -48,7 +48,7 @@ START_BTN = [
     ],
     [
         InlineKeyboardButton(text="DETAILS", callback_data="Miko_"),
-        InlineKeyboardButton(text="SOURCE", callback_data="git_source"),
+    #    InlineKeyboardButton(text="SOURCE", callback_data="git_source"),
     ],
     [
         InlineKeyboardButton(text="CREATOR", url=f"tg://user?id={OWNER_ID}"),
