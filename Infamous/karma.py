@@ -7,9 +7,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Mikobot import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT
 
 # <============================================== CONSTANTS =========================================================>
-START_IMG = [
-    "https://files.catbox.moe/idjyr8.jpg",
-]
+START_IMG = "https://files.catbox.moe/idjyr8.jpg"
 
 HEY_IMG = "https://files.catbox.moe/0lbgjt.jpg"
 
