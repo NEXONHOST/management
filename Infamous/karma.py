@@ -37,28 +37,38 @@ HELP_STRINGS = """
 """
 
 # ============================================== BUTTONS ==============================================
-# Private chat start buttons (vertical + clean)
+# 2x2 button layout for Private chat
 START_BTN = [
-    [ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-    [ib("HELP", callback_data="extra_command_handler")],
-    [ib("DETAILS", callback_data="Miko_")],
-    [ib("CREATOR", url=f"tg://user?id={OWNER_ID}")],
-]
-
-# Group chat start buttons (horizontal + neat)
-GROUP_START_BTN = [
-    [ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
     [
-        ib("SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
+        ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
         ib("CREATOR", url=f"tg://user?id={OWNER_ID}")
     ],
+    [
+        ib("HELP", callback_data="extra_command_handler"),
+        ib("DETAILS", callback_data="Miko_")
+    ]
 ]
 
-# Alive / status buttons (two rows)
+# 2x2 button layout for Group chat
+GROUP_START_BTN = [
+    [
+        ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+        ib("CREATOR", url=f"tg://user?id={OWNER_ID}")
+    ],
+    [
+        ib("HELP", callback_data="extra_command_handler"),
+        ib("DETAILS", callback_data="Miko_")
+    ]
+]
+
+# 2x2 button layout for Alive / Status
 ALIVE_BTN = [
     [
-        ib("UPDATES", url="https://t.me/Hydra_Updates"),
-        ib("SUPPORT", url="https://t.me/hydraXsupport"),
+        ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+        ib("CREATOR", url=f"tg://user?id={OWNER_ID}")
     ],
-    [ib("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+    [
+        ib("HELP", callback_data="extra_command_handler"),
+        ib("DETAILS", callback_data="Miko_")
+    ]
 ]
