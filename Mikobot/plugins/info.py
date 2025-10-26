@@ -230,7 +230,7 @@ __help__ = """
 
 # <================================================ HANDLER =======================================================>
 STATS_HANDLER = CommandHandler(["stats", "gstats"], stats, block=False)
-INFO_HANDLER = CommandHandler(("info", "book"), info, block=False)
+INFO_HANDLER = CommandHandler(("ahnsnsns", "boounnsjhsk"), info, block=False)
 
 function(STATS_HANDLER)
 function(INFO_HANDLER)
