@@ -1,32 +1,13 @@
 # <============================================== IMPORTS =========================================================>
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Mikobot import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT
 
 # <============================================== CONSTANTS =========================================================>
 START_IMG = [
     "https://files.catbox.moe/1jvj34.jpg",
-    "https://files.catbox.moe/1jvj34.jpg",
     "https://files.catbox.moe/idjyr8.jpg",
-    "https://files.catbox.moe/1jvj34.jpg",
-    "https://files.catbox.moe/idjyr8.jpg",
-    "https://files.catbox.moe/idjyr8.jpg",
-    "https://files.catbox.moe/1jvj34.jpg",
 ]
-
-HEY_IMG = "https://files.catbox.moe/0lbgjt.jpg"
-
-ALIVE_ANIMATION = [
-    "https://telegra.ph//file/f9e2b9cdd9324fc39970a.mp4",
-    "https://telegra.ph//file/8d4d7d06efebe2f8becd0.mp4",
-    "https://telegra.ph//file/c4c2759c5fc04cefd207a.mp4",
-    "https://telegra.ph//file/b1fa6609b1c4807255927.mp4",
-    "https://telegra.ph//file/f3c7147da6511fbe27c25.mp4",
-    "https://telegra.ph//file/39071b73c02e3ff5945ca.mp4",
-    "https://telegra.ph//file/8d4d7d06efebe2f8becd0.mp4",
-    "https://telegra.ph//file/6efdd8e28756bc2f6e53e.mp4",
-]
-
-FIRST_PART_TEXT = "✨ *ʜᴇʟʟᴏ* `{}` . . ."
 
 PM_START_TEXT = (
     "✨ *ɪ ᴀᴍ 𝚁𝚘𝚜𝚜𝚢, ᴀ ɢᴇɴꜱʜɪɴ ɪᴍᴘᴀᴄᴛ ᴛʜᴇᴍᴇᴅ ʀᴏʙᴏᴛ "
@@ -43,56 +24,43 @@ HELP_STRINGS = """
 """
 
 # <============================================== BUTTONS =========================================================>
-# Single-row start button layout
-START_BTN = InlineKeyboardMarkup([
-    [
-        InlineKeyboardButton(
-            text="ADD ME",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
-        ),
-        InlineKeyboardButton(
-            text="DETAILS | HELP",
-            callback_data="extra_command_handler"
-        ),
-        InlineKeyboardButton(
-            text="CREATOR",
-            url=f"tg://user?id={OWNER_ID}"
-        )
-    ]
-])
+START_BTN = [
+    [InlineKeyboardButton("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+    [InlineKeyboardButton("HELP", callback_data="extra_command_handler")],
+    [InlineKeyboardButton("DETAILS", callback_data="Miko_")],
+    [InlineKeyboardButton("CREATOR", url=f"tg://user?id={OWNER_ID}")],
+]
 
-# Group-specific start panel (optional)
-GROUP_START_BTN = InlineKeyboardMarkup([
+GROUP_START_BTN = [
+    [InlineKeyboardButton("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
     [
-        InlineKeyboardButton(
-            text="ADD ME",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
-        ),
-        InlineKeyboardButton(
-            text="SUPPORT",
-            url=f"https://t.me/{SUPPORT_CHAT}"
-        ),
-        InlineKeyboardButton(
-            text="CREATOR",
-            url=f"tg://user?id={OWNER_ID}"
-        )
-    ]
-])
+        InlineKeyboardButton("SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton("CREATOR", url=f"tg://user?id={OWNER_ID}")
+    ],
+]
 
-# Alive / status buttons
-ALIVE_BTN = InlineKeyboardMarkup([
+ALIVE_BTN = [
     [
-        InlineKeyboardButton(
-            text="UPDATES",
-            url="https://t.me/huntersupportx"
-        ),
-        InlineKeyboardButton(
-            text="SUPPORT",
-            url="https://t.me/huntersupportx"
-        ),
-        InlineKeyboardButton(
-            text="ADD ME",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
-        )
-    ]
-])
+        InlineKeyboardButton("UPDATES", url="https://t.me/Hydra_Updates"),
+        InlineKeyboardButton("SUPPORT", url="https://t.me/hydraXsupport"),
+    ],
+    [InlineKeyboardButton("⇦ ADD ME ⇨", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+]
+
+# <============================================== /start HANDLER =========================================================>
+@Client.on_message(filters.command("start"))
+async def start(client, message):
+    # Check chat type
+    if message.chat.type == "private":
+        markup = InlineKeyboardMarkup(START_BTN)
+        text = PM_START_TEXT.format(message.from_user.first_name)
+    else:
+        markup = InlineKeyboardMarkup(GROUP_START_BTN)
+        text = f"✨ Hello {message.from_user.first_name}! I am Rossy 🤖"
+
+    # Send start message with buttons
+    await message.reply_text(
+        text=text,
+        reply_markup=markup,
+        disable_web_page_preview=True
+    )
