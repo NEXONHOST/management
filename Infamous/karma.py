@@ -1,11 +1,5 @@
-# https://github.com/Infamous-Hydra/YaeMiko
-# https://github.com/Team-ProjectCodeX
-# https://t.me/O_okarma
-
 # <============================================== IMPORTS =========================================================>
-from pyrogram.types import InlineKeyboardButton as ib
-from telegram import InlineKeyboardButton
-
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Mikobot import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT
 
 # <============================================== CONSTANTS =========================================================>
@@ -34,52 +28,11 @@ ALIVE_ANIMATION = [
 
 FIRST_PART_TEXT = "✨ *ʜᴇʟʟᴏ* `{}` . . ."
 
-PM_START_TEXT = "✨ *ɪ ᴀᴍ 𝚁𝚘𝚜𝚜𝚢, ᴀ ɢᴇɴꜱʜɪɴ ɪᴍᴘᴀᴄᴛ ᴛʜᴇᴍᴇᴅ ʀᴏʙᴏᴛ ᴡʜɪᴄʜ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ᴀɴᴅ ꜱᴇᴄᴜʀᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ʜᴜɢᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ*"
-
-START_BTN = [
-    [
-        InlineKeyboardButton(
-            text="⇦ ADD ME ⇨",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-        ),
-    ],
-    [
-        InlineKeyboardButton(text="HELP", callback_data="extra_command_handler"),
-    ],
-    [
-        InlineKeyboardButton(text="DETAILS", callback_data="Miko_"),
-    #    InlineKeyboardButton(text="SOURCE", callback_data="git_source"),
-    ],
-    [
-        InlineKeyboardButton(text="CREATOR", url=f"tg://user?id={OWNER_ID}"),
-    ],
-]
-
-GROUP_START_BTN = [
-    [
-        InlineKeyboardButton(
-            text="⇦ ADD ME ⇨",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-        ),
-    ],
-    [
-        InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
-        InlineKeyboardButton(text="CREATOR", url=f"tg://user?id={OWNER_ID}"),
-    ],
-]
-
-ALIVE_BTN = [
-    [
-        ib(text="UPDATES", url="https://t.me/Hydra_Updates"),
-        ib(text="SUPPORT", url="https://t.me/hydraXsupport"),
-    ],
-    [
-        ib(
-            text="⇦ ADD ME ⇨",
-            url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-        ),
-    ],
-]
+PM_START_TEXT = (
+    "✨ *ɪ ᴀᴍ 𝚁𝚘𝚜𝚜𝚢, ᴀ ɢᴇɴꜱʜɪɴ ɪᴍᴘᴀᴄᴛ ᴛʜᴇᴍᴇᴅ ʀᴏʙᴏᴛ "
+    "ᴡʜɪᴄʜ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ᴀɴᴅ ꜱᴇᴄᴜʀᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ "
+    "ᴡɪᴛʜ ʜᴜɢᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ*"
+)
 
 HELP_STRINGS = """
 🫧 *ROSSY* 🫧 [ㅤ](https://files.catbox.moe/xxiylg.jpg)
@@ -88,3 +41,58 @@ HELP_STRINGS = """
 
 ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : /
 """
+
+# <============================================== BUTTONS =========================================================>
+# Single-row start button layout
+START_BTN = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            text="ADD ME",
+            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+        ),
+        InlineKeyboardButton(
+            text="DETAILS | HELP",
+            callback_data="extra_command_handler"
+        ),
+        InlineKeyboardButton(
+            text="CREATOR",
+            url=f"tg://user?id={OWNER_ID}"
+        )
+    ]
+])
+
+# Group-specific start panel (optional)
+GROUP_START_BTN = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            text="ADD ME",
+            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+        ),
+        InlineKeyboardButton(
+            text="SUPPORT",
+            url=f"https://t.me/{SUPPORT_CHAT}"
+        ),
+        InlineKeyboardButton(
+            text="CREATOR",
+            url=f"tg://user?id={OWNER_ID}"
+        )
+    ]
+])
+
+# Alive / status buttons
+ALIVE_BTN = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            text="UPDATES",
+            url="https://t.me/huntersupportx"
+        ),
+        InlineKeyboardButton(
+            text="SUPPORT",
+            url="https://t.me/huntersupportx"
+        ),
+        InlineKeyboardButton(
+            text="ADD ME",
+            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+        )
+    ]
+])
