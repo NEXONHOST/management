@@ -3,13 +3,23 @@
 # https://t.me/O_okarma
 
 # <============================================== IMPORTS =========================================================>
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton as ib
+from telegram import InlineKeyboardButton
+
 from Mikobot import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT
 
 # <============================================== CONSTANTS =========================================================>
-START_IMG = "https://files.catbox.moe/idjyr8.jpg"
+START_IMG = [
+    "https://telegra.ph/file/40b93b46642124605e678.jpg",
+    "https://telegra.ph/file/01a2e0cd1b9d03808c546.jpg",
+    "https://telegra.ph/file/ed4385c26dcf6de70543f.jpg",
+    "https://telegra.ph/file/33a8d97739a2a4f81ddde.jpg",
+    "https://telegra.ph/file/cce9038f6a9b88eb409b5.jpg",
+    "https://telegra.ph/file/262c86393730a609cdade.jpg",
+    "https://telegra.ph/file/33a8d97739a2a4f81ddde.jpg",
+]
 
-HEY_IMG = "https://files.catbox.moe/0lbgjt.jpg"
+HEY_IMG = "https://telegra.ph/file/33a8d97739a2a4f81ddde.jpg"
 
 ALIVE_ANIMATION = [
     "https://telegra.ph//file/f9e2b9cdd9324fc39970a.mp4",
@@ -24,9 +34,7 @@ ALIVE_ANIMATION = [
 
 FIRST_PART_TEXT = "✨ *ʜᴇʟʟᴏ* `{}` . . ."
 
-PM_START_TEXT = (
-    "✨ *ɪ ᴀᴍ ʀᴏꜱꜱʏ, ᴀ ɢᴇɴꜱʜɪɴ ɪᴍᴘᴀᴄᴛ ᴛʜᴇᴍᴇᴅ ʀᴏʙᴏᴛ ᴡʜɪᴄʜ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ᴀɴᴅ ꜱᴇᴄᴜʀᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ʜᴜɢᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ*"
-)
+PM_START_TEXT = "✨ *ɪ ᴀᴍ ᴍɪᴋᴏ, ᴀ ɢᴇɴꜱʜɪɴ ɪᴍᴘᴀᴄᴛ ᴛʜᴇᴍᴇᴅ ʀᴏʙᴏᴛ ᴡʜɪᴄʜ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ᴍᴀɴᴀɢᴇ ᴀɴᴅ ꜱᴇᴄᴜʀᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ʜᴜɢᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ*"
 
 START_BTN = [
     [
@@ -36,14 +44,14 @@ START_BTN = [
         ),
     ],
     [
-        InlineKeyboardButton(text="HELP ⚙️", callback_data="extra_command_handler"),
+        InlineKeyboardButton(text="HELP", callback_data="extra_command_handler"),
     ],
     [
-        InlineKeyboardButton(text="DETAILS 📖", callback_data="Miko_"),
-        InlineKeyboardButton(text="SOURCE 💫", callback_data="git_source"),
+        InlineKeyboardButton(text="DETAILS", callback_data="Miko_"),
+        InlineKeyboardButton(text="SOURCE", callback_data="git_source"),
     ],
     [
-        InlineKeyboardButton(text="CREATOR 🧸", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="CREATOR", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
@@ -55,18 +63,18 @@ GROUP_START_BTN = [
         ),
     ],
     [
-        InlineKeyboardButton(text="SUPPORT 💬", url=f"https://t.me/{SUPPORT_CHAT}"),
-        InlineKeyboardButton(text="CREATOR 🧸", url=f"tg://user?id={OWNER_ID}"),
+        InlineKeyboardButton(text="SUPPORT", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="CREATOR", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
 ALIVE_BTN = [
     [
-        InlineKeyboardButton(text="UPDATES 🛰️", url="https://t.me/Hydra_Updates"),
-        InlineKeyboardButton(text="SUPPORT 💬", url="https://t.me/hydraXsupport"),
+        ib(text="UPDATES", url="https://t.me/Hydra_Updates"),
+        ib(text="SUPPORT", url="https://t.me/hydraXsupport"),
     ],
     [
-        InlineKeyboardButton(
+        ib(
             text="⇦ ADD ME ⇨",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
